@@ -1,0 +1,103 @@
+.signUp-contatiner {
+  padding: 0px 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.signUp-from-side {
+  margin: 5% 5%;
+}
+
+.signUp-title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  display: flex;
+  color: #000000;
+}
+
+.signUp-sub-title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  display: flex;
+  color: #8692a6;
+  margin: 20px 0;
+}
+.signUp-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.signUp-from-label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #696f79;
+}
+
+.signUp-from-input {
+  width: 426px;
+  height: 60px;
+  border: 1px solid #8692a6;
+  border-radius: 6px;
+}
+.signUp-form-check {
+  display: flex;
+  gap: 5px;
+}
+
+.signUp-form-check-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  color: #696f79;
+}
+
+.signUp-form-submit {
+  width: 426px;
+  height: 60px;
+  background: #1565d8;
+  border-radius: 6px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+}
+
+.login-btn {
+  width: 426px;
+  height: 64px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+
+.signUp-logo-side {
+  background-image: url("../../assets/img/signUpLogo.png");
+  height: 1024px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 642px;
+}

@@ -1,0 +1,47 @@
+.logo {
+  margin-bottom: 16%;
+}
+
+.logo-side-description {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #696f79;
+}
+
+.comma {
+  font-family: "Gayathri";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 80px;
+  color: #bababa;
+  display: block;
+}
+
+.logo-side-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 38px;
+  color: #696f79;
+}
+
+.isSignUp {
+  background-color: #1565d8;
+  opacity: 0.9;
+  height: 100%;
+  padding: 5% 10% 0px 10%;
+}
+
+.isSignUp > p {
+  color: white !important;
+}
+.isSignUp > span {
+  color: white !important;
+}
+.singUp-control-logo {
+  float: right;
+}

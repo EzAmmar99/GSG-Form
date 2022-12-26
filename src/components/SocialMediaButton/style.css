@@ -1,0 +1,10 @@
+.social-media-button {
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+  border: #ffffff;
+  border-radius: 6px;
+  /* padding: 5px; */
+  width: 65px;
+  height: 65px;
+  border-radius: 6px;
+}
