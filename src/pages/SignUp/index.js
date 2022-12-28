@@ -1,24 +1,78 @@
 import React, { Component } from "react";
+import * as yup from "yup";
+
 import singLogo from "../../assets/img/singLogo.png";
 import corner from "../../assets/img/corner.png";
 import Descriprion from "../../components/Descriprion";
 import Divider from "../../components/Divider";
+
 import "./style.css";
 
 export default class SignUp extends Component {
   state = {
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
+    isCheck: true,
   };
+
+  schema = yup.object().shape({
+    name: yup
+      .string()
+      .min(6, "name must be more 6 digits")
+      .max(16, "name must be less 16 digits"),
+    // .required()
+    email: yup.string().required(),
+    password: yup
+      .string()
+      .required()
+      .min(8, "Must be more 6 digits")
+      .matches(
+        /^(?=.*[a-z])/,
+        "password must contain at least one lowercase character"
+      )
+      .matches(
+        /^(?=.*[A-Z])/,
+        "password must contain at least one uppercase character"
+      )
+      .matches(/^(?=.*[0-9])/, "password must contain at least one number"),
+    confirmPassword: yup.string().required(),
+    isCheck: yup.boolean().oneOf([true]).required(),
+  });
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  checkOnChange = (e) => {
+    this.setState({ isCheck: !this.state.isCheck });
+    console.log('this.state.isCheck :>> ', this.state.isCheck);
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
-    console.log("this.state :>> ", this.state);
+    this.schema
+      .validate(
+        {
+          name: this.state.string,
+          email: this.state.email,
+          password: this.state.password,
+          confirmPassword: this.state.confirmPassword,
+          isCheck: this.state.isCheck,
+        },
+        { abortEarly: false }
+      )
+      .then((valid) => {
+        if (valid) {
+          alert("success");
+          console.log("Form Values :>> ", this.state);
+        }
+      })
+      .catch((error) => {
+        alert("Something is wrong, See the console");
+        console.log("error :>> ", error.errors);
+      });
   };
 
   render() {
@@ -35,16 +89,28 @@ export default class SignUp extends Component {
 
           <div>
             <form className="signUp-form" onSubmit={this.onSubmit}>
+              <label className="signUp-from-label" htmlFor="name">
+                Name
+              </label>
+              <input
+                className="signUp-from-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Write your name"
+                onChange={this.onChange}
+                value={this.state.name}
+              />
+
               <label className="signUp-from-label" htmlFor="email">
                 Email address
               </label>
               <input
                 className="signUp-from-input"
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 placeholder="Write your email"
-                required
                 onChange={this.onChange}
                 value={this.state.email}
               />
@@ -57,7 +123,6 @@ export default class SignUp extends Component {
                 id="password"
                 name="password"
                 placeholder="•••••••••"
-                required
                 onChange={this.onChange}
                 value={this.state.password}
               />
@@ -70,13 +135,19 @@ export default class SignUp extends Component {
                 id="confirmPassword"
                 name="confirmPassword"
                 placeholder="•••••••••"
-                required
                 onChange={this.onChange}
                 value={this.state.confirmPassword}
               />
               <div className="signUp-form-check">
-                <input type="checkbox" id="agree" name="agree" value="" />
-                <label className="signUp-form-check-text" htmlFor="agree">
+                <input
+                  type="checkbox"
+                  id="isCheck"
+                  name="isCheck"
+                  value={this.state.isCheck}
+                  onClick={this.checkOnChange}
+                  // onChange={this.onChange}
+                />
+                <label className="signUp-form-check-text" htmlFor="isCheck">
                   I agree to terms & conditions
                 </label>
               </div>
