@@ -14,7 +14,7 @@ export default class SignUp extends Component {
     email: "",
     password: "",
     confirmPassword: "",
-    isCheck: true,
+    isCheck: false,
   };
 
   schema = yup.object().shape({
