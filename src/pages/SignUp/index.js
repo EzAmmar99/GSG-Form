@@ -72,7 +72,7 @@ export default class SignUp extends Component {
       })
       .catch((error) => {
         alert("Something is wrong, See the console");
-        console.log("Form Values :>> ", this.state);
+        console.log("Form Values :>> ", error.errors);
       });
   };
 
