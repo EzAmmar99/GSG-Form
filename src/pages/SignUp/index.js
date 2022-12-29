@@ -23,10 +23,10 @@ export default class SignUp extends Component {
       .min(6, "name must be more 6 digits")
       .max(16, "name must be less 16 digits"),
     // .required()
-    email: yup.string().required(),
+    email: yup.string().required("Required"),
     password: yup
       .string()
-      .required()
+      .required("Required")
       .min(8, "Must be more 6 digits")
       .matches(
         /^(?=.*[a-z])/,
@@ -37,8 +37,11 @@ export default class SignUp extends Component {
         "password must contain at least one uppercase character"
       )
       .matches(/^(?=.*[0-9])/, "password must contain at least one number"),
-    confirmPassword: yup.string().required(),
-    isCheck: yup.boolean().oneOf([true]).required(),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "Passwords don't match!")
+      .required("Required"),
+    isCheck: yup.boolean().oneOf([true]).required("Required"),
   });
 
   onChange = (e) => {
@@ -47,7 +50,6 @@ export default class SignUp extends Component {
 
   checkOnChange = (e) => {
     this.setState({ isCheck: !this.state.isCheck });
-    console.log('this.state.isCheck :>> ', this.state.isCheck);
   };
 
   onSubmit = (e) => {
@@ -66,12 +68,11 @@ export default class SignUp extends Component {
       .then((valid) => {
         if (valid) {
           alert("success");
-          console.log("Form Values :>> ", this.state);
         }
       })
       .catch((error) => {
         alert("Something is wrong, See the console");
-        console.log("error :>> ", error.errors);
+        console.log("Form Values :>> ", this.state);
       });
   };
 
@@ -145,7 +146,6 @@ export default class SignUp extends Component {
                   name="isCheck"
                   value={this.state.isCheck}
                   onClick={this.checkOnChange}
-                  // onChange={this.onChange}
                 />
                 <label className="signUp-form-check-text" htmlFor="isCheck">
                   I agree to terms & conditions

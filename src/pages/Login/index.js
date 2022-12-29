@@ -1,14 +1,16 @@
 import React, { Component } from "react";
+import * as yup from "yup";
+
 import SocialMediaButton from "../../components/SocialMediaButton";
 import logo from "../../assets/img/logo.png";
 import controlLogo from "../../assets/img/control-logo.png";
 import twitter from "../../assets/img/twitter.png";
 import gitHub from "../../assets/img/gitHub.png";
 import linked from "../../assets/img/linked.png";
-
-import "./style.css";
 import Divider from "../../components/Divider";
 import Descriprion from "../../components/Descriprion";
+
+import "./style.css";
 
 export default class Login extends Component {
   state = {
@@ -16,13 +18,34 @@ export default class Login extends Component {
     password: "",
   };
 
+  schema = yup.object().shape({
+    email: yup.string().email().required("Enter Your Email"),
+    password: yup.string().required("Enter Your Password"),
+  });
+
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log("this.state :>> ", this.state);
+    this.schema
+      .validate(
+        {
+          email: this.state.email,
+          password: this.state.password,
+        },
+        { abortEarly: false }
+      )
+      .then((valid) => {
+        if (valid) {
+          alert("success");
+        }
+      })
+      .catch((error) => {
+        alert("Something is wrong, See the console");
+        console.log("error :>> ", error.errors);
+      });
   };
 
   render() {
@@ -53,7 +76,7 @@ export default class Login extends Component {
               </label>
               <input
                 className="login-from-input"
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 placeholder="Write your email"
