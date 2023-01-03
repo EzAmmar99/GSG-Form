@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  
+  zoom: 145%;
 }
 
 .login-from-side {

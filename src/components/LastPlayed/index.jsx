@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import LastPlayedCard from "../LastPlayedCard";
 import SectionTitle from "../SectionTitle";
-import firstLastPlayed from "../../assets/img/lastPlayed-1.png";
+import FirstLastPlayed from "../../assets/img/lastPlayed-1.png";
+import SecondLastPlayed from "../../assets/img/Ellipse.png";
+import ThirdLastPlayed from "../../assets/img/Ellipse 4.png";
+import ForthLastPlayed from "../../assets/img/Ellipse 5.png";
 
 export default class LastPlayed extends Component {
   render() {
@@ -10,19 +13,19 @@ export default class LastPlayed extends Component {
         <div>
           <SectionTitle title="last played" isSlider={false} />
           <LastPlayedCard
-            image={firstLastPlayed}
+            image={FirstLastPlayed}
             content="Hogwarts Legacy 50%"
           />
           <LastPlayedCard
-            image={firstLastPlayed}
+            image={SecondLastPlayed}
             content="God Of War: Ragnarök 72.5%"
           />
           <LastPlayedCard
-            image={firstLastPlayed}
+            image={ThirdLastPlayed}
             content="Crash Bandicoot N. Sane Trilogy 34%"
           />
           <LastPlayedCard
-            image={firstLastPlayed}
+            image={ForthLastPlayed}
             content="Dying Light 2 Stay Human 100%"
           />
         </div>

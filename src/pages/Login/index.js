@@ -18,6 +18,11 @@ export default class Login extends Component {
     password: "",
   };
 
+  fakeData = {
+    email: "admin@gmail.com",
+    password: "123456$Admin",
+  };
+
   schema = yup.object().shape({
     email: yup.string().email().required("Enter Your Email"),
     password: yup.string().required("Enter Your Password"),
@@ -38,8 +43,13 @@ export default class Login extends Component {
         { abortEarly: false }
       )
       .then((valid) => {
-        if (valid) {
-          alert("success");
+        if (
+          valid.email === this.fakeData.email &&
+          valid.password === this.fakeData.password
+        ) {
+          window.location = "/home";
+        } else {
+          alert("email or password is wrong");
         }
       })
       .catch((error) => {

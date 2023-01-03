@@ -36,7 +36,8 @@ export default class SignUp extends Component {
         /^(?=.*[A-Z])/,
         "password must contain at least one uppercase character"
       )
-      .matches(/^(?=.*[0-9])/, "password must contain at least one number"),
+      .matches(/^(?=.*[0-9])/, "password must contain at least one number")
+      .matches(/^(?=.*[!@#$%^&*])/, "password must contain at least one special characters"),
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password"), null], "Passwords don't match!")
@@ -57,7 +58,7 @@ export default class SignUp extends Component {
     this.schema
       .validate(
         {
-          name: this.state.string,
+          name: this.state.name,
           email: this.state.email,
           password: this.state.password,
           confirmPassword: this.state.confirmPassword,
@@ -66,9 +67,7 @@ export default class SignUp extends Component {
         { abortEarly: false }
       )
       .then((valid) => {
-        if (valid) {
-          alert("success");
-        }
+        window.location = "/home";
       })
       .catch((error) => {
         alert("Something is wrong, See the console");

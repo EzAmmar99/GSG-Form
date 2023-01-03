@@ -11,7 +11,7 @@ import "./style.css";
 export default class Home extends Component {
   render() {
     return (
-      <div>
+      <div style={{ padding: "0 0 0 1% " }}>
         <Sidebar />
         <div className="side-line"></div>
         <div className="main">
