@@ -1,0 +1,10 @@
+.user {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 1% 1% 0 0;
+}
+
+.user h2 span {
+  display: block;
+}

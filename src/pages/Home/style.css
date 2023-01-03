@@ -1,0 +1,22 @@
+.side-line {
+  width: 9px;
+  height: 85%;
+  position: absolute;
+  background: #ffffff;
+  box-shadow: inset 2px 4px 4px rgb(0 0 0 / 25%);
+  border-radius: 38px;
+  left: 110px;
+  top: 60px;
+}
+
+.main {
+  margin-left: 120px;
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.other {
+  display: flex;
+  gap: 100px;
+}

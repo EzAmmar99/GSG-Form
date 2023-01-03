@@ -1,0 +1,22 @@
+.slider-card {
+  position: relative;
+  /* overflow-x: scroll; */
+}
+.slider-image {
+  background: #d9d9d9;
+  border-radius: 60px;
+}
+
+.slider-content {
+  width: 400px;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 31px;
+  text-align: right;
+  color: #d8d8d8;
+  position: absolute;
+  bottom: 8px;
+  left: 28%;
+}

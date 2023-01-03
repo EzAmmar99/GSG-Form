@@ -1,0 +1,13 @@
+.title-style {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 35px;
+  line-height: 43px;
+  text-align: left;
+  margin: 0 0 2% 0 !important;
+}
+
+.margin-style {
+  margin-top: 50px !important;
+}

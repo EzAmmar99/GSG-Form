@@ -21,13 +21,13 @@ export default class SignUp extends Component {
     name: yup
       .string()
       .min(6, "name must be more 6 digits")
-      .max(16, "name must be less 16 digits"),
-    // .required()
+      .max(16, "name must be less 16 digits")
+      .required(),
     email: yup.string().required("Required"),
     password: yup
       .string()
       .required("Required")
-      .min(8, "Must be more 6 digits")
+      .min(8, "Must be more 8 digits")
       .matches(
         /^(?=.*[a-z])/,
         "password must contain at least one lowercase character"
