@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SectionTitle from "../SectionTitle";
+
 import moreRecentImage from "../../assets/img/moreRecentImage.png";
 import cup from "../../assets/img/cup.png";
 

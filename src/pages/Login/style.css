@@ -56,14 +56,15 @@
 
 .login-from-input {
   width: 426px;
-  height: 60px;
+  padding: 25px 0 20px 25px;
   border: 1px solid #8692a6;
   border-radius: 6px;
 }
 
 .login-form-submit {
-  width: 426px;
+  width: 455px;
   height: 60px;
+  margin-top: 15px;
   background: #1565d8;
   border-radius: 6px;
   font-family: "Inter";
@@ -72,6 +73,7 @@
   font-size: 16px;
   line-height: 19px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .register {

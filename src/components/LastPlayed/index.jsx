@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import LastPlayedCard from "../LastPlayedCard";
 import SectionTitle from "../SectionTitle";
+
 import FirstLastPlayed from "../../assets/img/lastPlayed-1.png";
 import SecondLastPlayed from "../../assets/img/Ellipse.png";
 import ThirdLastPlayed from "../../assets/img/Ellipse 4.png";

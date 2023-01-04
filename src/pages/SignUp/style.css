@@ -29,6 +29,7 @@
   color: #8692a6;
   margin: 20px 0;
 }
+
 .signUp-form {
   display: flex;
   flex-direction: column;
@@ -47,7 +48,7 @@
 
 .signUp-from-input {
   width: 426px;
-  height: 60px;
+  padding: 25px 0 20px 25px;
   border: 1px solid #8692a6;
   border-radius: 6px;
 }
@@ -68,7 +69,7 @@
 }
 
 .signUp-form-submit {
-  width: 426px;
+  width: 455px;
   height: 60px;
   background: #1565d8;
   border-radius: 6px;
@@ -78,10 +79,11 @@
   font-size: 16px;
   line-height: 19px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .login-btn {
-  width: 426px;
+  width: 455px;
   height: 64px;
   background: #ffffff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
@@ -92,6 +94,7 @@
   font-size: 16px;
   line-height: 19px;
   color: #000000;
+  cursor: pointer;
 }
 
 .signUp-logo-side {

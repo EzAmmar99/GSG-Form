@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SectionTitle from "../SectionTitle";
+
 import friends from "../../assets/img/friends.png";
 
 export default class Friends extends Component {

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import "./style.css";
+
 export default class SliderCardImage extends Component {
   render() {
     const { img, content } = this.props;

@@ -4,6 +4,7 @@ import * as yup from "yup";
 import SocialMediaButton from "../../components/SocialMediaButton";
 import logo from "../../assets/img/logo.png";
 import controlLogo from "../../assets/img/control-logo.png";
+import google from "../../assets/img/google.png";
 import twitter from "../../assets/img/twitter.png";
 import gitHub from "../../assets/img/gitHub.png";
 import linked from "../../assets/img/linked.png";
@@ -11,6 +12,7 @@ import Divider from "../../components/Divider";
 import Descriprion from "../../components/Descriprion";
 
 import "./style.css";
+import { Link } from "react-router-dom";
 
 export default class Login extends Component {
   state = {
@@ -47,7 +49,7 @@ export default class Login extends Component {
           valid.email === this.fakeData.email &&
           valid.password === this.fakeData.password
         ) {
-          window.location = "/home";
+          this.props.navigate("/home");
         } else {
           alert("email or password is wrong");
         }
@@ -71,7 +73,7 @@ export default class Login extends Component {
             Go inside the best gamers social network!
           </span>
           <div className="social-media">
-            <SocialMediaButton img={twitter} />
+            <SocialMediaButton img={google} />
             <SocialMediaButton img={twitter} />
             <SocialMediaButton img={gitHub} />
             <SocialMediaButton img={linked} />
@@ -112,7 +114,7 @@ export default class Login extends Component {
               />
             </form>
             <p className="register">
-              Don’t have an account? <a href="">Register</a>
+              Don’t have an account? <Link to="/signUp">Register</Link>
             </p>
           </div>
         </div>

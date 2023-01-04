@@ -37,7 +37,10 @@ export default class SignUp extends Component {
         "password must contain at least one uppercase character"
       )
       .matches(/^(?=.*[0-9])/, "password must contain at least one number")
-      .matches(/^(?=.*[!@#$%^&*])/, "password must contain at least one special characters"),
+      .matches(
+        /^(?=.*[!@#$%^&*])/,
+        "password must contain at least one special characters"
+      ),
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password"), null], "Passwords don't match!")
@@ -67,7 +70,7 @@ export default class SignUp extends Component {
         { abortEarly: false }
       )
       .then((valid) => {
-        window.location = "/home";
+        this.props.navigate("/home");
       })
       .catch((error) => {
         alert("Something is wrong, See the console");
@@ -158,7 +161,14 @@ export default class SignUp extends Component {
               <span style={{ width: "90%" }}>
                 <Divider />
               </span>
-              <input className="login-btn" type="submit" value="Login" />
+              <input
+                className="login-btn"
+                type="submit"
+                onClick={() => {
+                  this.props.navigate("/login");
+                }}
+                value="Login"
+              />
             </form>
           </div>
         </div>
