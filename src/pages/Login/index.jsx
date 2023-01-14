@@ -12,21 +12,18 @@ import Divider from "../../components/Divider";
 import Descriprion from "../../components/Descriprion";
 
 import "./style.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import axios from "axios";
 
 export default class Login extends Component {
   state = {
     email: "",
     password: "",
-  };
-
-  fakeData = {
-    email: "admin@gmail.com",
-    password: "123456$Admin",
+    errors: [],
   };
 
   schema = yup.object().shape({
-    email: yup.string().email().required("Enter Your Email"),
+    email: yup.string().email().required("Enter Your email"),
     password: yup.string().required("Enter Your Password"),
   });
 
@@ -34,7 +31,7 @@ export default class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = (e) => {
+  onSubmit = async (e) => {
     e.preventDefault();
     this.schema
       .validate(
@@ -44,19 +41,28 @@ export default class Login extends Component {
         },
         { abortEarly: false }
       )
-      .then((valid) => {
-        if (
-          valid.email === this.fakeData.email &&
-          valid.password === this.fakeData.password
-        ) {
-          this.props.navigate("/home");
-        } else {
-          alert("email or password is wrong");
+      .then(async () => {
+        const res = await axios.post(
+          "https://react-tt-api.onrender.com/api/users/login",
+          {
+            email: this.state.email,
+            password: this.state.password,
+          }
+        );
+
+        if (res) {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("username", res.data.name);
+          localStorage.setItem("isAdmin", res.data.isAdmin);
+          this.props.login();
         }
       })
       .catch((error) => {
-        alert("Something is wrong, See the console");
-        console.log("error :>> ", error.errors);
+        if (error.errors) {
+          this.setState({ errors: error.errors });
+        } else {
+          this.setState({ errors: [error.message] });
+        }
       });
   };
 

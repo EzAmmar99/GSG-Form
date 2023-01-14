@@ -15,7 +15,7 @@ export default class Home extends Component {
         <Sidebar />
         <div className="side-line"></div>
         <div className="main">
-          <User />
+          <User logout={this.props.logout} />
           <Slider />
           <div className="other">
             <LastPlayed />

@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import { Navigate } from "react-router-dom";
 import * as yup from "yup";
 
 import singLogo from "../../assets/img/singLogo.png";
 import corner from "../../assets/img/corner.png";
+import google from "../../assets/img/google.png";
 import Descriprion from "../../components/Descriprion";
 import Divider from "../../components/Divider";
 
 import "./style.css";
+import axios from "axios";
 
 export default class SignUp extends Component {
   state = {
@@ -15,6 +18,7 @@ export default class SignUp extends Component {
     password: "",
     confirmPassword: "",
     isCheck: false,
+    errors: [],
   };
 
   schema = yup.object().shape({
@@ -69,12 +73,28 @@ export default class SignUp extends Component {
         },
         { abortEarly: false }
       )
-      .then((valid) => {
-        this.props.navigate("/home");
+      .then(async () => {
+        const res = await axios.post(
+          "https://react-tt-api.onrender.com/api/users/signup",
+          {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+          }
+        );
+
+        if (res) {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("username", res.data.name);
+          this.props.login();
+        }
       })
       .catch((error) => {
-        alert("Something is wrong, See the console");
-        console.log("Form Values :>> ", error.errors);
+        if (error.errors) {
+          this.setState({ errors: error.errors });
+        } else {
+          this.setState({ errors: [error.message] });
+        }
       });
   };
 
@@ -91,6 +111,11 @@ export default class SignUp extends Component {
           </span>
 
           <div>
+            <div>
+              {this.state.errors.map((error) => (
+                <span style={{ color: "red" }}>{error}</span>
+              ))}
+            </div>
             <form className="signUp-form" onSubmit={this.onSubmit}>
               <label className="signUp-from-label" htmlFor="name">
                 Name
@@ -161,15 +186,20 @@ export default class SignUp extends Component {
               <span style={{ width: "90%" }}>
                 <Divider />
               </span>
-              <input
-                className="login-btn"
-                type="submit"
-                onClick={() => {
-                  this.props.navigate("/login");
-                }}
-                value="Login"
-              />
             </form>
+            <button
+              className="login-btn"
+              onClick={() => {
+                <Navigate to="/login" />;
+              }}
+            >
+              <div style={{ marginTop: "20px" }}>
+                <img src={google} alt="img" />
+              </div>
+              <div style={{ paddingLeft: "20px", marginTop: "20px" }}>
+                Login
+              </div>
+            </button>
           </div>
         </div>
       </div>
