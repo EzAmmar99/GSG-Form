@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./style.css";
 
 export default class Profile extends Component {
   state = {
@@ -38,6 +40,12 @@ export default class Profile extends Component {
           <p>email : {this.state.data.email}</p>
           <p>isAdmin : {this.state.data.isAdmin ? "true" : "false"}</p>
         </div>
+
+        {localStorage.getItem("isAdmin") === "true" ? (
+          <Link to={`/all-user`}>
+            <button className="button">All User</button>
+          </Link>
+        ) : null}
       </div>
     );
   }
