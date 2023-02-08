@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ec2ce291.css",
+    "main.js": "/static/js/main.5f8b94df.js",
+    "static/media/signUpLogo.png": "/static/media/signUpLogo.d6fecc6e839d1d44450f.png",
+    "static/media/moreRecentImage.png": "/static/media/moreRecentImage.95ec16dee45afac03757.png",
+    "static/media/wars.png": "/static/media/wars.3cc397b6ae5caff9855a.png",
+    "static/media/spiderman.png": "/static/media/spiderman.482c7273280473214740.png",
+    "static/media/superman.png": "/static/media/superman.eaa82ccaab8f8c1bb645.png",
+    "static/media/control-logo.png": "/static/media/control-logo.f2c3b6b38e4fcb303148.png",
+    "static/media/friends.png": "/static/media/friends.c2e5ac9d7a5b28e54e4f.png",
+    "static/media/user.png": "/static/media/user.25b355893ba8e77578ca.png",
+    "static/media/cup.png": "/static/media/cup.cc23eac6483035aa990b.png",
+    "static/media/lastPlayed-1.png": "/static/media/lastPlayed-1.7ca3bea83336e1d5ba5f.png",
+    "static/media/Ellipse 4.png": "/static/media/Ellipse 4.34508981c9aacfc400ff.png",
+    "static/media/Ellipse.png": "/static/media/Ellipse.e7c7eb208d749d056bcb.png",
+    "static/media/Ellipse 5.png": "/static/media/Ellipse 5.3181d4a9a1470cd3d1b7.png",
+    "index.html": "/index.html",
+    "main.ec2ce291.css.map": "/static/css/main.ec2ce291.css.map",
+    "main.5f8b94df.js.map": "/static/js/main.5f8b94df.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec2ce291.css",
+    "static/js/main.5f8b94df.js"
+  ]
+}
